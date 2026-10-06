@@ -8,117 +8,105 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
 
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-          <li><a href="index.html#advantages">Преимущества</a></li>
-          <li><a href="index.html#popular">Популярные товары</a></li>
-          <li><a href="index.html#contacts">Обратная связь</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
-    
   </header>
 
   <main>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a>
-      <span>Каталог</span>
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Каталог</span>
     </nav>
 
     <section class="section">
-      <h1>Каталог товаров</h1>
-      <p>
+      <h1 class="section__title">Каталог товаров</h1>
+      <p class="section__text">
         На этой странице представлен учебный каталог товаров.
         В дальнейшем здесь будут добавлены фильтры, сортировка и более
         подробные карточки.
       </p>
     </section>
 
-    <section class="section">
-      
-<section class="section">
-  <section class="catalog-layout">
-    <aside class="catalog-filters">
-      <h2>Фильтры</h2>
+    <section class="catalog-layout">
+      <aside class="catalog-filters">
+        <h2 class="catalog-filters__title">Фильтры</h2>
 
-      <form class="filters-form" action="#" method="get">
-        <fieldset>
-          <legend>Категория</legend>
+        <form class="filters-form" action="#" method="get">
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Категория</legend>
 
-          <label>
-            <input type="checkbox" name="category" value="all">
-            Все товары
-          </label>
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="all"> Все товары
+            </label>
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="popular"> Популярные
+            </label>
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="new"> Новинки
+            </label>
+          </fieldset>
 
-          <label>
-            <input type="checkbox" name="category" value="popular">
-            Популярные
-          </label>
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Цена</legend>
+            <label class="filters-form__label" for="price-from">От</label>
+            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <label class="filters-form__label" for="price-to">До</label>
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="12000">
+          </fieldset>
 
-          <label>
-            <input type="checkbox" name="category" value="new">
-            Новинки
-          </label>
-        </fieldset>
+          <button class="button button--primary" type="submit">Применить</button>
+        </form>
+      </aside>
 
-        <fieldset>
-          <legend>Цена</legend>
+      <section class="catalog-products">
+        <h2 class="section__title">Список товаров</h2>
 
-          <label for="price-from">От</label>
-          <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+        <div class="products-grid">
+          <article class="product-card product-card--featured">
+            <span class="product-card__badge">Хит</span>
+            <img src="images/i.webp" alt="Оконная рама" class="product-card__image">
+            <h3 class="product-card__title">Оконная рама</h3>
+            <p class="product-card__description">Мама-рама. Не продувает и сохраняет тепло.</p>
+            <p class="product-card__price">Цена: 5000 руб.</p>
+            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          </article>
 
-          <label for="price-to">До</label>
-          <input id="price-to" name="price-to" type="number" min="0" placeholder="12000">
-        </fieldset>
+          <article class="product-card">
+            <img src="images/окно мансардное.webp" alt="Мансардное окно" class="product-card__image">
+            <h3 class="product-card__title">Мансардное окно</h3>
+            <p class="product-card__description">Мансардное окно, чтобы с кайфом смотреть на звёзды.</p>
+            <p class="product-card__price">Цена: 12000 руб.</p>
+            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          </article>
 
-        <button class="button" type="submit">Применить</button>
-      </form>
-    </aside>
-
-    <section class="catalog-products">
-      <h2>Список товаров</h2>
-
-      <div class="products-grid">
-        <article class="product-card">
-          <img src="images/i.webp" alt="Оконная рама" class="product-image">
-      <h3>Оконная рама</h3>
-      <p>Мама-рама. Не продувает, и сохраняет тепло.</p>
-      <p>Цена: 5000 руб.</p>
-          <a class="button" href="index.html#popular">Подробнее</a>
-        </article>
-
-        <article class="product-card">
-        <img src="images/окно мансардное.webp" alt="Оконная рама" class="product-image">
-        <h3>Мансардное окно</h3>
-        <p>Мансардное окно, чтобы с кайфом смотреть на звезды.</p>
-        <p>Цена: 12000 руб.</p>
-          <a class="button" href="index.html#popular">Подробнее</a>
-        </article>
-
-        <article class="product-card">
-          <img src="images/жалюзи.webp" alt="Оконная рама" class="product-image">
-        <h3>Жалюзи</h3>
-        <p>Жалюзи как в школе.</p>
-        <p>Цена: 1000 руб.</p>
-          <a class="button" href="index.html#popular">Подробнее</a>
-        </article>
-      </div>
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--sale">Скидка</span>
+            <img src="images/жалюзи.webp" alt="Жалюзи" class="product-card__image">
+            <h3 class="product-card__title">Жалюзи</h3>
+            <p class="product-card__description">Жалюзи как в школе.</p>
+            <p class="product-card__price">Цена: 1000 руб.</p>
+            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          </article>
+        </div>
+      </section>
     </section>
-  </section>
-</section>
+  </main>
 
-  <footer>
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+
 </body>
 </html>
