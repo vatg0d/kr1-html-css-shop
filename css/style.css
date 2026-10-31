@@ -8,7 +8,7 @@
   --color-primary: #0057b8;
   --color-primary-dark: #003f86;
   --color-border: #dddddd;
-  --color-surface: #f7f7f7;
+  --color-surface: #e7e7e7;
   --color-surface-accent: #eef5ff;
   --color-danger: #b00020;
   --color-success: #168a2f;
@@ -43,10 +43,16 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;  
+  flex-direction: column;
   font-family: Arial, sans-serif;
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
+}
+main{
+  flex: 1;
 }
 
 a {
@@ -155,6 +161,10 @@ textarea:focus-visible {
   padding: var(--space-xl) var(--space-lg);
   background-color: var(--color-surface-accent);
   border-radius: var(--radius-lg);
+  background: url('../images/баба в окне.webp') no-repeat;
+  background-size: 100%;
+  background-position: 10%;
+  margin-top: 20px;
 }
 
 .hero__title {
@@ -217,10 +227,15 @@ textarea:focus-visible {
 
 .product-card:hover {
   border-color: var(--color-primary);
+  
 }
 
 .product-card--featured {
   border-color: var(--color-primary);
+  background: url('../images/girl.webp') no-repeat;
+  background-size: 60%;
+  background-position: 50% 65px;
+ 
 }
 
 .product-card--discount {

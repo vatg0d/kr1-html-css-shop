@@ -1,0 +1,303 @@
+/* ==========================================================
+   Адаптивные стили для КР №3.
+   Подход: Mobile First.
+   Базовые стили — мобильный экран.
+   Расширения — через @media (min-width: ...).
+   ========================================================== */
+
+/* ---------- Базовые правила ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- Контейнеры и секции ---------- */
+.container,
+.main,
+.section {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(24px, 5vw, 64px);
+}
+
+/* ---------- Шапка ---------- */
+.site-header {
+  position: static;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md, 16px);
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+  padding-block: 12px;
+}
+
+.site-header__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- Навигация ---------- */
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm, 8px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 12px 16px;
+  min-height: 44px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav__link {
+    padding: 10px 14px;
+  }
+}
+
+/* ---------- Hero-блок ---------- */
+.hero {
+  display: grid;
+  gap: var(--space-lg, 24px);
+  align-items: center;
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+  padding-block: clamp(24px, 6vw, 72px);
+}
+
+.hero__title {
+  font-size: clamp(28px, 7vw, 56px);
+  line-height: 1.1;
+}
+
+.hero__image {
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  border-radius: var(--radius-md, 8px);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  }
+}
+
+/* ---------- Сетка карточек товаров ---------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md, 16px);
+}
+
+.product-card {
+  min-width: 0;
+}
+
+.product-card__title,
+.product-card__description {
+  overflow-wrap: anywhere;
+}
+
+.product-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md, 8px);
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .products-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Каталог: фильтр + товары ---------- */
+.catalog-layout {
+  display: grid;
+  gap: var(--space-lg, 24px);
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+.catalog-filters {
+  order: -1;
+}
+
+@media (min-width: 1024px) {
+  .catalog-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .catalog-filters {
+    position: sticky;
+    top: 88px;
+    order: initial;
+  }
+}
+
+/* ---------- Карточка товара (страница product.html) ---------- */
+.product-detail {
+  display: grid;
+  gap: var(--space-lg, 24px);
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+  padding-block: clamp(24px, 5vw, 64px);
+}
+
+.product-detail__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md, 8px);
+}
+
+@media (min-width: 900px) {
+  .product-detail {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* ---------- Таблица характеристик ---------- */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.product-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+/* ---------- Форма заявки ---------- */
+.order-form {
+  display: grid;
+  gap: var(--space-md, 16px);
+}
+
+.order-form__field {
+  display: grid;
+  gap: var(--space-xs, 8px);
+}
+
+.order-form__input,
+.order-form__textarea,
+.order-form__select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.order-form__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.order-form__field--checkbox,
+.order-form__actions {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .order-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-form__field--checkbox,
+  .order-form__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Модальное окно ---------- */
+.order-dialog {
+  width: min(100% - 32px, 640px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  padding: clamp(16px, 4vw, 32px);
+}
+
+/* ---------- Кнопка «Наверх» ---------- */
+.to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .to-top {
+    right: 32px;
+    bottom: 32px;
+  }
+}
+
+/* ---------- Футер ---------- */
+.site-footer {
+  width: min(100% - 32px, 1920px);
+  margin-inline: auto;
+  padding-block: clamp(16px, 3vw, 32px);
+  text-align: center;
+}
